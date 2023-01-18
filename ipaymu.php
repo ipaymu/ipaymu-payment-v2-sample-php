@@ -2,7 +2,7 @@
     // SAMPLE HIT API iPaymu v2 PHP //
 
     $va           = '1179000899'; //get on iPaymu dashboard
-    $secret       = 'QbGcoO0Qds9sQFDmY0MWg1Tq.xtuh1'; //get on iPaymu dashboard
+    $apiKey       = 'QbGcoO0Qds9sQFDmY0MWg1Tq.xtuh1'; //get on iPaymu dashboard
 
     $url          = 'https://sandbox.ipaymu.com/api/v2/payment'; // for development mode
     // $url          = 'https://my.ipaymu.com/api/v2/payment'; // for production mode
@@ -23,8 +23,8 @@
     // *Don't change this
     $jsonBody     = json_encode($body, JSON_UNESCAPED_SLASHES);
     $requestBody  = strtolower(hash('sha256', $jsonBody));
-    $stringToSign = strtoupper($method) . ':' . $va . ':' . $requestBody . ':' . $secret;
-    $signature    = hash_hmac('sha256', $stringToSign, $secret);
+    $stringToSign = strtoupper($method) . ':' . $va . ':' . $requestBody . ':' . $apiKey;
+    $signature    = hash_hmac('sha256', $stringToSign, $apiKey);
     $timestamp    = Date('YmdHis');
     //End Generate Signature
 
